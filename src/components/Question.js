@@ -28,7 +28,12 @@ const Question = ({ question, choices, handleAnswer, type }) => {
       )}
       <div
         className={`button nextButton ${currentAnswer ? "" : "disabled"}`}
-        onClick={() => currentAnswer && handleAnswer(currentAnswer)}
+        onClick={{() => {
+          if (currentAnswer) {
+            handleAnswer(currentAnswer);
+            setCurrentAnswer("");
+          }
+        }}}
       >
         Next
       </div>
