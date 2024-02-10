@@ -1,0 +1,125 @@
+$light-black: #2f2f2f;
+$lighter-black: #565656;
+$yellow: #d2dd3a;
+$choice-color: #504949;
+$success: #00b100;
+$failure: #ff1818;
+
+@mixin answerOption {
+  background-color: $choice-color;
+  width: fit-content;
+  min-width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: $light-black;
+  color: white;
+  margin: 0;
+}
+.App {
+  padding: 40px;
+}
+
+.welcomeText {
+  font-size: x-large;
+  font-weight: bold;
+  color: yellow;
+}
+
+.header {
+  background-color: #000000;
+  font-size: xx-large;
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  color: $yellow;
+  background-color: $lighter-black;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.startButton {
+  margin: 50px auto;
+}
+
+.nextButton {
+  float: right;
+  margin: 20px 0;
+}
+
+.choicesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.choice {
+  @include answerOption;
+  list-style: none;
+}
+
+.active {
+  background-color: #1f1f1f;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.answerInput {
+  @include answerOption;
+  color: white;
+}
+
+.quizHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.displayNone {
+  display: none;
+}
+
+.result {
+  color: $success;
+  margin-left: 5px;
+}
+
+.wrongResult {
+  color: $failure;
+  margin-left: 5px;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  font-weight: bold;
+}
+.progress {
+  color: $yellow;
+}
+.quizProgress {
+  display: flex;
+}
+@media only screen and (max-width: 600px) {
+  .App {
+    padding: 20px;
+  }
+  .answerInput {
+    margin: auto;
+  }
+  .choicesContainer {
+    display: block;
+  }
+}
